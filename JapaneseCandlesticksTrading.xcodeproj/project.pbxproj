@@ -13,10 +13,10 @@
 		F22C7B732907CCB3006C5EED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22C7B712907CCB3006C5EED /* Main.storyboard */; };
 		F22C7B752907CCB5006C5EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22C7B742907CCB5006C5EED /* Assets.xcassets */; };
 		F22C7B782907CCB5006C5EED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F22C7B762907CCB5006C5EED /* LaunchScreen.storyboard */; };
-		F2A977052907F4F50089871A /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = F2A977042907F4F50089871A /* Charts */; };
-		F2A9770D29091E0B0089871A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2A9770C29091E0B0089871A /* SnapKit */; };
 		F2A9770F290920B70089871A /* CandleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A9770E290920B70089871A /* CandleModel.swift */; };
 		F2A977112909230A0089871A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A977102909230A0089871A /* ViewModel.swift */; };
+		F2A9772E290925DC0089871A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2A9772D290925DC0089871A /* SnapKit */; };
+		F2A97731290925E60089871A /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = F2A97730290925E60089871A /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2A977052907F4F50089871A /* Charts in Frameworks */,
-				F2A9770D29091E0B0089871A /* SnapKit in Frameworks */,
+				F2A9772E290925DC0089871A /* SnapKit in Frameworks */,
+				F2A97731290925E60089871A /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +94,8 @@
 			);
 			name = JapaneseCandlesticksTrading;
 			packageProductDependencies = (
-				F2A977042907F4F50089871A /* Charts */,
-				F2A9770C29091E0B0089871A /* SnapKit */,
+				F2A9772D290925DC0089871A /* SnapKit */,
+				F2A97730290925E60089871A /* Charts */,
 			);
 			productName = JapaneseCandlesticksTrading;
 			productReference = F22C7B682907CCB3006C5EED /* JapaneseCandlesticksTrading.app */;
@@ -126,8 +126,8 @@
 			);
 			mainGroup = F22C7B5F2907CCB3006C5EED;
 			packageReferences = (
-				F2A977032907F4F50089871A /* XCRemoteSwiftPackageReference "Charts" */,
-				F2A9770B29091E0A0089871A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F2A9772C290925DC0089871A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F2A9772F290925E60089871A /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = F22C7B692907CCB3006C5EED /* Products */;
 			projectDirPath = "";
@@ -388,15 +388,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F2A977032907F4F50089871A /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		F2A9770B29091E0A0089871A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		F2A9772C290925DC0089871A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -404,18 +396,26 @@
 				kind = branch;
 			};
 		};
+		F2A9772F290925E60089871A /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F2A977042907F4F50089871A /* Charts */ = {
+		F2A9772D290925DC0089871A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F2A977032907F4F50089871A /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
-		};
-		F2A9770C29091E0B0089871A /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2A9770B29091E0A0089871A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = F2A9772C290925DC0089871A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F2A97730290925E60089871A /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2A9772F290925E60089871A /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
