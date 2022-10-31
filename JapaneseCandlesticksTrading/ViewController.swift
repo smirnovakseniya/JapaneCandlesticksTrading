@@ -9,9 +9,8 @@ import UIKit
 import Charts
 import SnapKit
 
-class ViewController: UIViewController, ChartViewDelegate {
-    
-    var model = ViewModel()
+class ViewController: UIViewController {
+    lazy var presenter = Presenter(with: self, array: candleArray, chartView: chartView)
     
     private lazy var chartView: CandleStickChartView = {
         let chartView = CandleStickChartView()
@@ -20,13 +19,9 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(chartView)
         setConstraints()
-        
-        chartView.delegate = self
-        
-        model.setDataCount(chartView: chartView, array: candleArray)
+        updateGraphic()
     }
     
     private func setConstraints() {
@@ -37,3 +32,10 @@ class ViewController: UIViewController, ChartViewDelegate {
         }
     }
 }
+
+extension ViewController: PresenterView {
+    func updateGraphic() {
+        chartView.data = presenter.setDataCount()
+    }
+}
+

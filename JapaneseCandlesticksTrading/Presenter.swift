@@ -1,23 +1,38 @@
 //
-//  ViewModel.swift
+//  Presenter.swift
 //  JapaneseCandlesticksTrading
 //
-//  Created by Kseniya Smirnova on 26.10.22.
+//  Created by Kseniya Smirnova on 31.10.22.
 //
 
 import UIKit
 import Charts
 
-class ViewModel {
+protocol PresenterView: AnyObject {
+    func updateGraphic()
+}
+
+class Presenter {
+    weak var view: PresenterView?
+    var array: [CandleModel]?
+    var chartView: CandleStickChartView?
     
-    func setDataCount(chartView: CandleStickChartView, array: [CandleModel]) {
+    init(with view: PresenterView, array: [CandleModel], chartView: CandleStickChartView) {
+        self.view = view
+        self.array = array
+        self.chartView = chartView
+    }
+
+    func setDataCount() -> CandleChartData {
+        guard let array = array, let chartView = chartView else { return CandleChartData() }
+        
         setUI(chartView: chartView)
         
-        let yVals1 = array.map { (i) -> CandleChartDataEntry in
+        let candles = array.map { (i) -> CandleChartDataEntry in
             return CandleChartDataEntry(x: Double(i.mult), shadowH: i.high, shadowL: i.low, open: i.open, close: i.close, icon: nil)
         }
         
-        let set1 = CandleChartDataSet(entries: yVals1, label: "Data Set")
+        let set1 = CandleChartDataSet(entries: candles, label: "Data Set")
         set1.axisDependency = .left
         set1.drawIconsEnabled = false
         set1.drawValuesEnabled = false
@@ -28,7 +43,7 @@ class ViewModel {
         set1.increasingFilled = true
         
         let data = CandleChartData(dataSet: set1)
-        chartView.data = data
+        return data
     }
     
     private func setUI(chartView: CandleStickChartView) {
@@ -42,5 +57,4 @@ class ViewModel {
         
         chartView.xAxis.labelPosition = .bottom
     }
-    
 }
